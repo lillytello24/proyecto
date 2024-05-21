@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ofertas - Tienda de Productos</title>
+    <link rel="stylesheet" href="ofertas.css">
+</head>
+<body>
+    <header>
+        <h1>Ofertas</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="inicio.html">COMPRAR</a></li>
+            <li><a href="carrito.html">CARRITO</a></li>
+            <li><a href="index.html">INICIO</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="oferta">
+            <img src="media/maestro.jpg" alt="Producto 2">
+            <h2>MAESTRO LIMPIO</h2>
+            <p>Ahorra $9</p>
+            <span class="$46">$55.00</span>
+            <button class="comprar" onclick="agregarAlCarrito('Oferta 1', 46)">Comprar</button>
+        </div>
+        <div class="oferta">
+            <img src="media/pasta.jpg" alt="pasta">
+            <h2>Pata dental</h2>
+            <p>Ahorra $8</p>
+            <span class="$22">$30.00</span>
+            <button class="comprar" onclick="agregarAlCarrito('Oferta 2', 22)">Comprar</button>
+        </div>
+        <div class="oferta">
+            <img src="media/audifonos.jpg" alt="pasta">
+            <h2>Audifonos</h2>
+            <p>Ahorra $134</p>
+            <span class="$366">$500</span>
+            <button class="comprar" onclick="agregarAlCarrito('Oferta 3', 366)">Comprar</button>
+        </div>
+        <!-- Agrega más ofertas aquí -->
+    </div>
+
+    <script>
+        function agregarAlCarrito(nombre, precio) {
+            // Obtenemos el carrito del almacenamiento local
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            // Agregamos el producto al carrito
+            carrito.push({nombre: nombre, precio: precio});
+
+            // Guardamos el carrito actualizado en el almacenamiento local
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+
+            // Notificamos al usuario que el producto ha sido agregado al carrito (esto puede ser opcional)
+            alert('¡Producto agregado al carrito!');
+        }
+    </script>
+</body>
+</html>
