@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="inicio.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Supermercado Mufly</h1>
+        <p>Tu supermercado en línea de confianza</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="#">Ofertas</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section id="destacados">
+        <h2>Productos Destacados</h2>
+        <div class="producto">
+            <img src="media/salch.jpg" alt="Embutidos">
+            <h3>Salchicha de pavo 1k</h3>
+            <p>Precio: $25</p>
+            <a href="carrito.html">
+                <button class="btn-carrito">Agregar al carrito</button>
+            </a>
+            
+        </div>
+        <div class="producto">
+            <img src="media/arrachera.jpg" alt="Producto 2">
+            <h3>Arrachera 1k</h3>
+            <p>Precio: $300</p>
+            <a href="carrito.html">
+                <button class="btn-carrito">Agregar al carrito</button>
+            </a>
+
+            
+        </div>
+        <div class="producto">
+            <img src="media/jugo.jpg" alt="Producto 2">
+            <h3>Jugo Naranja 1L</h3>
+            <p>Precio: $35</p>
+          
+        </div>
+        <div class="producto">
+            <img src="media/helado.jpg" alt="Producto 2">
+            <h3>Helado 1kg</h3>
+            <p>Precio: $120</p>
+          
+        </div>
+        <div class="producto">
+            <img src="media/galletas.jpg" alt="Producto 2">
+            <h3>Galletas de coco</h3>
+            <p>Precio: $24</p>
+            
+        </div>
+        <div class="producto">
+            <img src="media/pañales.jpg" alt="Producto 2">
+            <h3>Pañales </h3>
+            <p>Precio: $300</p>
+            <
+        </div>
+        <script>
+            function agregarAlCarrito(nombreProducto) {
+                let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                carrito.push(nombreProducto);
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+            }
+        </script>
+    </section>
+
+    <section id="ofertas">
+        <h2>Ofertas Especiales</h2>
+        <div class="oferta">
+            <img src="oferta1.jpg" alt="Oferta 1">
+            <h3>Oferta 1</h3>
+            <p>¡Descuento del 20% en productos seleccionados!</p>
+        </div>
+        <div class="oferta">
+            <img src="oferta2.jpg" alt="Oferta 2">
+            <h3>Oferta 2</h3>
+            <p>¡Lleva 2 y paga 1 en productos de limpieza!</p>
+        </div>
+        <!-- Agregar más ofertas especiales aquí -->
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Supermercado Mufly</p>
+    </footer>
+    
+</body>
+</html>
