@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Carrito de Compras</title>
+</head>
+<body>
+    <h1>Carrito de Compras</h1>
+    <ul id="lista-carrito"></ul>
+    <script>
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        let listaCarrito = document.getElementById('lista-carrito');
+        
+        carrito.forEach(producto => {
+            let li = document.createElement('li');
+            li.textContent = producto;
+            listaCarrito.appendChild(li);
+        });
+    </script>
+</body>
+</html>
