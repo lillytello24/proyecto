@@ -1,20 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="carrito.css">
     <title>Carrito de Compras</title>
 </head>
 <body>
     <h1>Carrito de Compras</h1>
     <ul id="lista-carrito"></ul>
+    <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+    <button onclick="regresarInicio()">Volver a la Tienda</button>
     <script>
         let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
         let listaCarrito = document.getElementById('lista-carrito');
         
-        carrito.forEach(producto => {
-            let li = document.createElement('li');
-            li.textContent = producto;
-            listaCarrito.appendChild(li);
-        });
+        function mostrarCarrito() {
+            listaCarrito.innerHTML = ''; // Limpiar la lista antes de volver a mostrar los productos
+            
+            carrito.forEach((producto, index) => {
+                let li = document.createElement('li');
+                li.textContent = producto;
+                
+                // Botón para eliminar el producto del carrito
+                let botonEliminar = document.createElement('button');
+                botonEliminar.textContent = 'Eliminar';
+                botonEliminar.onclick = function() {
+                    eliminarProducto(index);
+                };
+                
+                li.appendChild(botonEliminar);
+                
+                listaCarrito.appendChild(li);
+            });
+        }
+        
+        function eliminarProducto(index) {
+            carrito.splice(index, 1); // Eliminar el producto del carrito en el índice especificado
+            localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualizar el almacenamiento local
+            mostrarCarrito(); // Volver a mostrar los productos en el carrito
+        }
+        
+        function vaciarCarrito() {
+            carrito = []; // Vaciar el carrito
+            localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualizar el almacenamiento local
+            mostrarCarrito(); // Volver a mostrar los productos en el carrito
+        }
+        
+        function regresarInicio() {
+            window.location.href = 'index.html'; // Redirigir al usuario de regreso a la página de inicio
+        }
+        
+        mostrarCarrito(); // Mostrar los productos en el carrito al cargar la página
     </script>
 </body>
 </html>
+
